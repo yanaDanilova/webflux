@@ -1,5 +1,6 @@
 package com.springboot.reactive.webflux;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/home")
 public class HomeController {
     @GetMapping("/index")
+    @Operation(description = "greeting")
     public Mono<ResponseEntity<String>> index(){
         return Mono.just(ResponseEntity.status(HttpStatus.OK).body("Hello World"));
     }
